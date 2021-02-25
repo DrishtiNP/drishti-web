@@ -7,10 +7,15 @@ $phone = htmlentities(addslashes($_POST["phone"]));
 $type = htmlentities(addslashes($_POST["type"]));
 $message = htmlentities(addslashes($_POST["message"]));
 
+$sent = false;
 if($name != null && $email != null && $phone != null && $type != null && $message != null){
   $msg = "Name: ".$name."<br>";
   $msg .= "Email: ".$email."<br>";
   $msg .= "Phone: ".$phone."<br>";
+  $msg .= "Message: ".wordwrap($message);
+
+  sendemail("arbinda2k2@gmail.com", "Message from Drishti Website", $message);
+  $sent = true;
 }
 ?>
 
